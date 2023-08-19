@@ -67,7 +67,7 @@ public class Cliente {
 				"\nData de Nascimento: " + Utils.dateParaString(this.getDataNascimento()) +
 				"\nData de Cadastro: " + Utils.dateParaString(this.getDataCadastro());
 				
-				
+					
 				
 	}
 	

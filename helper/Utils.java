@@ -12,11 +12,19 @@ import java.util.concurrent.TimeUnit;
 
 public class Utils {
 	
-	static SimpleDateFormat sdf = new SimpleDateFormat ("dd/mm/yyyy");
+	static SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy");
 	static NumberFormat nf = new DecimalFormat("R$ #,##0.00", new DecimalFormatSymbols(new Locale("pt", "BR")));
 
 	public	static String dateParaString(Date data) {
 		return Utils.sdf.format(data);
+	}
+	
+	public static Date stringParaData(String Data) {
+		try {
+			return Utils.sdf.parse(Data);
+		}catch(ParseException e) {
+			return null;
+		}
 	}
 	
 	public static String doubleParaString(double valor) {
