@@ -60,6 +60,7 @@ public class Conta {
 			this.saldo = this.getSaldo() + valor; 
 			this.atualizaSaldoTotal();
 			System.out.println("Depósito efetuado com sucesso!");
+			System.out.println();
 		}else {
 			System.out.println("Erro ao efetuar depósito. Tente novamente.");
 		}
