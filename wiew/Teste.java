@@ -32,6 +32,10 @@ public class Teste {
 		//Depositando  um valor positivo
 		c101.depositar(500.00);
 		c102.depositar(500.00);
+		
+		//Sacar valor 
+		c101.sacar(300.0);
+		
 		System.out.println(c101);
 		System.out.println();
 		System.out.println(c102);

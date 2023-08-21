@@ -37,6 +37,8 @@ public class Conta {
 	}
 	public void setLimite(Double limite) {
 		this.limite = limite;
+		this.atualizaSaldoTotal();
+		
 	}
 	public int getNumero() {
 		return numero;
@@ -68,14 +70,14 @@ public class Conta {
 	}
 	
 	public void sacar (Double valor) {
-		if (valor > 0 && this.getSaldoTotal() >= valor) {
+		if (valor > 0 && this.getSaldo() >= valor) {
 			if(this.getSaldo() >= valor) {
 				this.saldo = this.getSaldo() - valor;
 				this.atualizaSaldoTotal();
 				System.out.println("Saque efetuado com sucesso!");
 			}else {
 				Double restante = this.getSaldo() - valor;
-				this.limite = getLimite() - restante;
+				this.limite = getLimite() + restante;
 				this.saldo = 0.0;
 				this.atualizaSaldoTotal();
 				System.out.println("Saque efetuado com sucesso!");
