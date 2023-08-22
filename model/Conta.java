@@ -11,15 +11,12 @@ public class Conta {
 	private Double limite = 0.0;
 	private Double saldoTotal;
 	
-	
 	public Conta(Cliente cliente) {
 		this.numero = Conta.codigo;
 		this.cliente = cliente;
 		Conta.codigo += 1;
 		this.atualizaSaldoTotal();
 	}
-	
-	
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -38,7 +35,6 @@ public class Conta {
 	public void setLimite(Double limite) {
 		this.limite = limite;
 		this.atualizaSaldoTotal();
-		
 	}
 	public int getNumero() {
 		return numero;
@@ -52,67 +48,60 @@ public class Conta {
 	}
 	
 	public String toString() {
-		return "Número da conta: " + this.getNumero() +
-				"\nCliente:  " + this.cliente.getNome() +
+		return "Número da Conta: " + this.getNumero() +
+				"\nCliente: " + this.cliente.getNome() + 
 				"\nSaldo Total: " + Utils.doubleParaString(this.getSaldoTotal());
 	}
-
-	public void depositar (Double valor) {
-		if (valor > 0) {
-			this.saldo = this.getSaldo() + valor; 
+	
+	public void depositar(Double valor) {
+		if(valor > 0) {
+			this.saldo = this.getSaldo() + valor;
 			this.atualizaSaldoTotal();
 			System.out.println("Depósito efetuado com sucesso!");
-			System.out.println();
 		}else {
 			System.out.println("Erro ao efetuar depósito. Tente novamente.");
 		}
-			
 	}
 	
-	public void sacar (Double valor) {
-		if (valor > 0 && this.getSaldo() >= valor) {
+	public void sacar(Double valor) {
+		if(valor > 0 && this.getSaldoTotal() >= valor) {
 			if(this.getSaldo() >= valor) {
 				this.saldo = this.getSaldo() - valor;
 				this.atualizaSaldoTotal();
 				System.out.println("Saque efetuado com sucesso!");
 			}else {
-				Double restante = this.getSaldo() - valor;
-				this.limite = getLimite() + restante;
+				Double restante = this.getSaldo() - valor; //500 - 600 -> -100
+				this.limite = this.getLimite() + restante; //200 + -100
 				this.saldo = 0.0;
 				this.atualizaSaldoTotal();
 				System.out.println("Saque efetuado com sucesso!");
- 			}
+			}
 		}else {
 			System.out.println("Saque não realizado. Tente novamente.");
 		}
-		
 	}
-		
-	public void transferir (Conta destino, Double valor) {
+	
+	public void transferir(Conta destino, Double valor) {
 		if(valor > 0 && this.getSaldoTotal() >= valor) {
 			if(this.getSaldo() >= valor) {
 				this.saldo = this.getSaldo() - valor;
 				destino.saldo = destino.getSaldo() + valor;
 				this.atualizaSaldoTotal();
 				destino.atualizaSaldoTotal();
-				System.out.println("Transferência realizada com sucesso!");
+				System.out.println("Transeferência realizada com sucesso!");
 			}else {
 				Double restante = this.getSaldo() - valor;
-				this.limite = this.getLimite() - restante;
+				this.limite = this.getLimite() + restante;
 				this.saldo = 0.0;
 				destino.saldo = destino.getSaldo() + valor;
 				this.atualizaSaldoTotal();
 				destino.atualizaSaldoTotal();
-				System.out.println("Transferência realizada com sucesso!"); 
-				
+				System.out.println("Transferência realizada com sucesso!");
 			}
-				
 		}else {
 			System.out.println("Transferência não realizada. Tente novamente.");
 		}
 	}
-		
-		
-	}
 	
-
+	
+}
