@@ -5,7 +5,6 @@ import java.util.Date;
 import helper.Utils;
 
 public class Cliente {
-
 	private static int contador = 101;
 	
 	private int codigo;
@@ -16,7 +15,6 @@ public class Cliente {
 	private Date dataCadastro;
 	
 	public Cliente(String nome, String email, String cpf, Date dataNascimento) {
-		super();
 		this.codigo = Cliente.contador;
 		this.nome = nome;
 		this.email = email;
@@ -25,11 +23,9 @@ public class Cliente {
 		this.dataCadastro = new Date();
 		Cliente.contador += 1;
 	}
-	
 	public int getCodigo() {
 		return this.codigo;
 	}
-	
 	public String getNome() {
 		return nome;
 	}
@@ -48,7 +44,6 @@ public class Cliente {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
 	public Date getDataNascimento() {
 		return dataNascimento;
 	}
@@ -60,15 +55,12 @@ public class Cliente {
 	}
 	
 	public String toString() {
-		return "Código: " + this.getCodigo() +
-				"\nNoome: " + this.getNome() +
-				"\nE-mail: " + this.getEmail() + 
+		return "Código: " + this.getCodigo() + 
+				"\nNome: " + this.getNome() +
+				"\nE-mail: " + this.getEmail() +
 				"\nCPF: " + this.getCpf() +
-				"\nData de Nascimento: " + Utils.dateParaString(this.getDataNascimento()) +
+				"\nData de Nascimento: " + Utils.dateParaString(this.getDataNascimento()) + 
 				"\nData de Cadastro: " + Utils.dateParaString(this.getDataCadastro());
-				
-					
-				
 	}
 	
 
