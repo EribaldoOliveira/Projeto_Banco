@@ -9,7 +9,7 @@ import model.Conta;
 
 public class Banco {
 	
-	static String nome = "Geek Bank";
+	static String nome = "Eri Bank";
 	static Scanner teclado = new Scanner(System.in);
 	static ArrayList<Conta> contas;
 	
