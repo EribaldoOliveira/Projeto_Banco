@@ -21,18 +21,20 @@ public class Banco {
 	
 	public static void menu() {
 		int opcao = 0;
-		System.out.println("=========================================");
-		System.out.println("=================== ATM =================");
-		System.out.println("================ " + Banco.nome + " ==============");
-		System.out.println("=========================================");
-		System.out.println("Selecione uma opção no menu: ");
-		System.out.println("1 - Criar conta");
+		System.out.println("▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼");
+		//System.out.println("=======================================");
+		System.out.println("==================ATM==================");
+		System.out.println("============== " + Banco.nome + " ===============");
+		//System.out.println("=======================================");
+		System.out.println("▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲");
+		System.out.println("Selecione  uma opção no menu: ");
+		System.out.println("1 - Criar Conta");
 		System.out.println("2 - Efetuar saque");
 		System.out.println("3 - Efetuar depósito");
 		System.out.println("4 - Efetuar transferência");
 		System.out.println("5 - Listar contas");
 		System.out.println("6 - Sair do sistema");
-		
+		System.out.println();		
 		try {
 			opcao = Integer.parseInt(Banco.teclado.nextLine());
 		}catch(NumberFormatException e) {
