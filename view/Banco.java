@@ -82,7 +82,7 @@ public class Banco {
 	}
 	
 	public static void criarConta() {
-		System.out.println("Informw os dados do cliente");
+		System.out.println("Informe os dados do cliente");
 		
 		System.out.println("Nome do cliente: ");
 		String nome = Banco.teclado.next();
@@ -97,7 +97,6 @@ public class Banco {
 		String data_nascimento = Banco.teclado.next();
 		
 		Cliente cliente = new Cliente(nome, email, cpf, Utils.stringParaData(data_nascimento));
-		//System.out.println(" ► Criando Conta...")
 
 			Conta conta = new Conta(cliente);
 			
@@ -128,7 +127,7 @@ public class Banco {
 			conta.sacar(valor);
 		}
 		else {
-			System.out.println("Não foi encontrada a conta número" + numero);
+			System.out.println("Não foi encontrada a conta número " + numero);
 		}
 		
 		Utils.pausar(3);
@@ -150,7 +149,7 @@ public class Banco {
 			conta.depositar(valor);
 		}
 		else {
-			System.out.println("Não foi encontrada a conta número" + numero);
+			System.out.println("Não foi encontrada a conta número " + numero);
 		}
 		
 		Utils.pausar(3);
@@ -167,18 +166,15 @@ public class Banco {
 	  numero_d => número_destino;
 	  conta_d => conta_destino;
 	*/ 
-	
-	
-	public static void efetuarTransferência() {
 		
-		public static void efetuarSaque() {
+		public static void efetuarTransferência() {
 			System.out.println(" ► Informe o número da sua conta: ");
 			int numero_o = Banco.teclado.nextInt();
 			Conta conta_o = Banco.BuscarContaPorNumero(numero_o);
 			
 			if (conta_o != null) {
 				System.out.println("Informe o número da conta destino: ");
-				int numero_d = Banco.teclado.nextDouble();
+				int numero_d = Banco.teclado.nextInt();
 				Conta conta_d = Banco.BuscarContaPorNumero(numero_d);
 				
 				if (conta_d != null) {
@@ -187,10 +183,10 @@ public class Banco {
 					
 					conta_o	.transferir(conta_d, valor);
 				}else {
-					System.out.println("A conta destino número" + numero_d + " não foi encontrada.");
+					System.out.println("A conta destino número " + numero_d + " não foi encontrada.");
 				}			
 			}else {
-				System.out.println("Não foi encontrada a conta número" + numero_o);
+				System.out.println("Não foi encontrada a conta número " + numero_o);
 			}
 			
 			Utils.pausar(3);

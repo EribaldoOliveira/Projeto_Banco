@@ -1,5 +1,4 @@
-	package helper;
-
+package helper;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -12,26 +11,27 @@ import java.util.concurrent.TimeUnit;
 
 public class Utils {
 	
-	static SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy");
-	static NumberFormat nf = new DecimalFormat("R$ #,##0.00", new DecimalFormatSymbols(new Locale("pt", "BR")));
-
-	public	static String dateParaString(Date data) {
+	static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	static NumberFormat nf = new DecimalFormat("R$ #,##0.00", 
+			new DecimalFormatSymbols(new Locale("pt", "BR")));
+	
+	public static String dateParaString(Date data) {
 		return Utils.sdf.format(data);
 	}
 	
-	public static Date stringParaData(String Data) {
+	public static Date stringParaData(String data) {
 		try {
-			return Utils.sdf.parse(Data);
+			return Utils.sdf.parse(data);
 		}catch(ParseException e) {
 			return null;
 		}
 	}
 	
-	public static String doubleParaString(double valor) {
+	public static String doubleParaString(Double valor) {
 		return Utils.nf.format(valor);
 	}
 	
-	public static Double stringParaDoble(String valor) {
+	public static Double stringParaDouble(String valor) {
 		try {
 			return (Double)Utils.nf.parse(valor);
 		}catch(ParseException e) {
@@ -43,7 +43,7 @@ public class Utils {
 		try {
 			TimeUnit.SECONDS.sleep(segundos);
 		}catch(InterruptedException e) {
-			System.out.println("ERRO ao pausar por " + segundos + "segundo");
+			System.out.println("Erro ao pausar por " + segundos + " segundos.");
 		}
 	}
 	
