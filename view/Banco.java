@@ -208,8 +208,7 @@ public class Banco {
 			
 			for(Conta conta: Banco.contas) {
 				System.out.println(conta);
-				System.out.println();
-					
+				System.out.println();	
 				Utils.pausar(1);
 			}
 			System.out.println();
@@ -218,10 +217,24 @@ public class Banco {
 			System.out.println("Não existem contas cadastradas ainda.");
 		}
 		
-		Utils.pausar(1);
+		Utils.pausar(3);
 		Banco.menu();
 		
 		System.out.println("        ◄♦►");
+		
+	}
+	
+	private static Conta BuscarContaPorNumero(int numero) {
+		Conta c = null;
+		if(Banco.contas.size() > 0) {
+			for (Conta conta : Banco.contas) {
+				if(conta.getNumero() == numero) {
+					c = conta;
+				}
+			}
+		}
+		
+		return c;
 		
 	}
 	
